@@ -1,0 +1,13 @@
+.bgcolor{
+    background-color: rgb(42, 134, 165);
+}
+    .class1{
+    background-color:#AFD42B;
+    display : flex;
+    align-items: center;
+    justify-content: space-around;
+    font-style: italic;
+}
+.navpadding{
+    padding: 20px 20px 20px 20px;
+}
