@@ -1,13 +1,32 @@
-.bgcolor{
-    background-color: rgb(42, 134, 165);
+/* === Footer Styling === */
+
+.body{
+    background-color: chocolate;
 }
-    .class1{
-    background-color:#AFD42B;
-    display : flex;
-    align-items: center;
-    justify-content: space-around;
-    font-style: italic;
+
+
+
+footer {
+  background-color: #1a2234; /* Dark navy */
+  color: #cbd5e1; /* Soft gray */
+  padding: 20px 0;
+  position: fixed; /* keeps it stuck at bottom */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+  font-size: 14px;
+  z-index: 10;
 }
-.navpadding{
-    padding: 20px 20px 20px 20px;
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: 0 20px;
 }
+
