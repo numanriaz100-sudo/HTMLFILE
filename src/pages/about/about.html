@@ -1,80 +1,223 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<head lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alerts Example</title>
-  
-  <!-- ✅ Include Tailwind CDN -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — TechNova</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Flowbite -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-</head>
-<body class="p-10 bg-gray-100">
 
-  <div class="flex items-center p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50" role="alert">
-    <svg class="shrink-0 inline w-4 h-4 me-3" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Z" />
-    </svg>
+
+  <link  href="./src/pages/contact/contact.html">
+  <link rel="stylesheet" href="./../../../src/pages/contact/contact.html">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    html,body{font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+  </style>
+</head>
+
+<header class="text-white body-font bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-lg">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <a href="index.html" class="flex title-font font-medium items-center mb-4 md:mb-0 text-white">
+      <span class="ml-3 text-xl font-bold">Traffic Rules</span>
+    </a>
+    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+      <a href="./../../../index.html" class="mr-5 hover:text-yellow-300">Home</a>
+       <a href="./../../pircing.html" class="mr-5 hover:text-yellow-300">Pricing</a>
+      <a href="./../about/about.html" class="mr-5 hover:text-yellow-300">About</a>
+      <a href="./../contact/contact.html" class="mr-5 hover:text-yellow-300">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+ <!-- 2) HERO -->
+<section id="about" class="relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
     <div>
-      <span class="font-medium">Info alert!</span> Change a few things up and try submitting again.
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Promoting Road Safety & Traffic Awareness</h1>
+      <p class="mt-6 text-gray-600">At Traffic-Rules, we provide educational resources, interactive tools, and campaigns to improve driving habits, reduce accidents, and make roads safer for everyone.</p>
+      <div class="mt-8 flex gap-4">
+        <a href="https://trafficpolice.punjab.gov.pk/" target="_blank" class="px-5 py-3 bg-indigo-600 text-white rounded-md shadow hover:bg-indigo-700">Traffic Police Punjab</a>
+    
+      </div>
+    </div>
+    <div class="flex justify-center md:justify-end">
+      <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6">
+        <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=900&q=80" alt="office" class="h-56 w-full object-cover rounded-lg">
+        <p class="mt-4 text-sm text-gray-500">Traffic safety experts collaborating on road awareness programs and campaigns.</p>
+      </div>
     </div>
   </div>
-
-
-  
-
-<body class="bg-gray-50 text-gray-900">
-
-  <!-- About Section -->
-  <section class="py-16 px-6 md:px-16">
-    <div class="max-w-6xl mx-auto text-center mb-10">
-      <h2 class="text-4xl font-bold text-blue-700 mb-4">About Our Company</h2>
-      <p class="text-gray-600">We are dedicated to providing innovative digital solutions that make a difference.</p>
+</section>
+<!-- 3) FEATURES / SERVICES (3 columns) -->
+<section id="services" class="max-w-7xl mx-auto px-6 py-12">
+  <h2 class="text-2xl font-semibold">Our Traffic Safety Services</h2>
+  <p class="mt-2 text-gray-600">We provide tools, education, and programs to improve road safety and promote responsible driving.</p>
+  <div class="mt-8 grid md:grid-cols-3 gap-6">
+    <div class="p-6 bg-white rounded-lg shadow-sm">
+      <h3 class="font-semibold">Driver Education</h3>
+      <p class="mt-2 text-sm text-gray-600">Interactive courses and resources to educate drivers on traffic rules and safe driving practices.</p>
     </div>
-
-    <div class="grid md:grid-cols-3 gap-8">
-
-      <!-- Card 1 -->
-      <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition">
-        <div class="flex items-center justify-center mb-4">
-          <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Our Mission</h3>
-        <p class="text-gray-600">To empower businesses through technology and create sustainable solutions that shape the future.</p>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition">
-        <div class="flex items-center justify-center mb-4">
-          <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m4-4h-4v1m8 4a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Our Vision</h3>
-        <p class="text-gray-600">To become a global leader in delivering creative and intelligent software solutions.</p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="p-6 bg-white rounded-2xl shadow hover:shadow-lg transition">
-        <div class="flex items-center justify-center mb-4">
-          <svg class="w-10 h-10 text-yellow-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m2 0a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v3a2 2 0 002 2zm-2 0v7m10-7v7" />
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold mb-2">Our Values</h3>
-        <p class="text-gray-600">We believe in integrity, innovation, teamwork, and continuous improvement in all we do.</p>
-      </div>
-
+    <div class="p-6 bg-white rounded-lg shadow-sm">
+      <h3 class="font-semibold">Road Safety Campaigns</h3>
+      <p class="mt-2 text-sm text-gray-600">Community initiatives, workshops, and awareness programs to reduce accidents and improve traffic behavior.</p>
     </div>
-  </section>
+    <div class="p-6 bg-white rounded-lg shadow-sm">
+      <h3 class="font-semibold">Traffic Data & Analytics</h3>
+      <p class="mt-2 text-sm text-gray-600">Monitoring traffic patterns and accident data to provide insights for safer road planning and policies.</p>
+    </div>
+  </div>
+</section>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+  <!-- 4) STATS / METRICS -->
+<section class="bg-indigo-600 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-4 gap-6 text-center">
+    <div>
+      <div class="text-3xl font-bold">500+</div>
+      <div class="text-sm mt-1">Drivers Educated</div>
+    </div>
+    <div>
+      <div class="text-3xl font-bold">200+</div>
+      <div class="text-sm mt-1">Road Safety Campaigns</div>
+    </div>
+    <div>
+      <div class="text-3xl font-bold">90%</div>
+      <div class="text-sm mt-1">Accident Reduction Rate</div>
+    </div>
+    <div>
+      <div class="text-3xl font-bold">50</div>
+      <div class="text-sm mt-1">Traffic Safety Experts</div>
+    </div>
+  </div>
+</section>
+
+
+ <!-- 5) TEAM CARDS -->
+<section id="team" class="max-w-7xl mx-auto px-6 py-12">
+  <h2 class="text-2xl font-semibold">Meet the Team</h2>
+  <div class="mt-6 grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+    <!-- member 1 -->
+    <div class="p-6 bg-white rounded-lg shadow-sm text-center">
+      <img class="mx-auto h-20 w-20 rounded-full object-cover" src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?auto=format&fit=crop&w=400&q=80" alt="">
+      <h4 class="mt-4 font-semibold">Sara Khan</h4>
+      <p class="text-sm text-gray-500">Traffic Safety Educator</p>
+    </div>
+    <!-- member 2 -->
+    <div class="p-6 bg-white rounded-lg shadow-sm text-center">
+      <img class="mx-auto h-20 w-20 rounded-full object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" alt=">
+      <h4 class="mt-4 font-semibold">Omar Ali</h4>
+      <p class="text-sm text-gray-500">Road Safety Analyst</p>
+    </div>
+    <!-- member 3 -->
+    <div class="p-6 bg-white rounded-lg shadow-sm text-center">
+      <img class="mx-auto h-20 w-20 rounded-full object-cover" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80" alt="">
+      <h4 class="mt-4 font-semibold">Ayesha Iqbal</h4>
+      <p class="text-sm text-gray-500">Traffic Law Specialist</p>
+    </div>
+    <!-- member 4 -->
+    <div class="p-6 bg-white rounded-lg shadow-sm text-center">
+      <img class="mx-auto h-20 w-20 rounded-full object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" alt="">
+      <h4 class="mt-4 font-semibold">Bilal Ahmed</h4>
+      <p class="text-sm text-gray-500">Community Outreach Officer</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6) TESTIMONIALS -->
+<section class="max-w-7xl mx-auto px-6 py-12">
+  <h2 class="text-2xl font-semibold">What Visitors Say</h2>
+  <div class="mt-6 grid md:grid-cols-3 gap-6">
+    <blockquote class="p-6 bg-white rounded-lg shadow">
+      “The traffic awareness workshops greatly helped our community understand road safety rules.” 
+      <p class="mt-3 font-semibold">— Mr. Ahmed, City Transport Dept.</p>
+    </blockquote>
+    <blockquote class="p-6 bg-white rounded-lg shadow">
+      “Their online guide reduced traffic violations in our neighborhood.” 
+      <p class="mt-3 font-semibold">— Mrs. Fatima, Local Resident</p>
+    </blockquote>
+    <blockquote class="p-6 bg-white rounded-lg shadow">
+      “Excellent communication and clear road safety resources for drivers of all ages.” 
+      <p class="mt-3 font-semibold">— Traffic Police Officer</p>
+    </blockquote>
+  </div>
+</section>
+
+  <!-- 7) FAQ Accordion -->
+<section class="max-w-7xl mx-auto px-6 py-12">
+  <h2 class="text-2xl font-semibold">Frequently Asked Questions</h2>
+  <div class="mt-6 space-y-3">
+    <details class="p-4 bg-white rounded-lg shadow">
+      <summary class="font-medium cursor-pointer">What are the basic traffic rules everyone should know?</summary>
+      <p class="mt-2 text-sm text-gray-600">Always follow traffic signals, wear seatbelts, adhere to speed limits, and avoid using mobile phones while driving.</p>
+    </details>
+    <details class="p-4 bg-white rounded-lg shadow">
+      <summary class="font-medium cursor-pointer">Do you provide resources for new drivers?</summary>
+      <p class="mt-2 text-sm text-gray-600">Yes, we offer guides, quizzes, and workshops to help new drivers understand traffic signs, rules, and road safety practices.</p>
+    </details>
+  </div>
+</section>
+
+<!-- 8) CALL-TO-ACTION (Contact) -->
+<section id="contact" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div>
+      <h3 class="text-2xl font-semibold">Want to Learn More About Traffic Safety?</h3>
+      <p class="mt-2 text-sm opacity-90">Get in touch for workshops, safety campaigns, and online resources.</p>
+    </div>
+    <div class="flex gap-4">
+      <a href="./../contact/contact.html" class="px-5 py-3 bg-white text-indigo-600 rounded-md font-semibold">Contact Us</a>
+      <a href="./../../../login.html" class="px-5 py-3 border border-white rounded-md">Request a Workshop</a>
+    </div>
+  </div>
+</section>
+
+<!-- 9) PACKAGES -->
+<section class="max-w-7xl mx-auto px-6 py-12">
+  <h2 class="text-2xl font-semibold">Safety Programs</h2>
+  <div class="mt-6 grid md:grid-cols-3 gap-6">
+    <div class="p-6 bg-white rounded-lg shadow">
+      <h4 class="font-semibold">Starter Program</h4>
+      <p class="mt-2 text-gray-600">Basic traffic rules for beginners & young drivers.</p>
+      <div class="mt-4 text-2xl font-bold">Free</div>
+    </div>
+    <div class="p-6 bg-white rounded-lg shadow border-2 border-indigo-600">
+      <h4 class="font-semibold">Intermediate Program</h4>
+      <p class="mt-2 text-gray-600">Comprehensive road safety workshops for schools and communities.</p>
+      <div class="mt-4 text-2xl font-bold">$50+</div>
+    </div>
+    <div class="p-6 bg-white rounded-lg shadow">
+      <h4 class="font-semibold">Advanced Program</h4>
+      <p class="mt-2 text-gray-600">Full traffic management and safety campaigns for organizations.</p>
+      <div class="mt-4 text-2xl font-bold">Custom</div>
+    </div>
+  </div>
+</section>
+
+<!-- 10) FOOTER -->
+<footer class="bg-gray-900 text-gray-200">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
+    <div>
+      <h4 class="font-semibold text-white">Traffic Rules Hub</h4>
+      <p class="text-sm mt-2">Promoting road safety, traffic awareness, and responsible driving.</p>
+    </div>
+    <div>
+      <h5 class="font-semibold">Quick Links</h5>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a href="#" class="hover:underline">Rules & Regulations</a></li>
+        <li><a href="#" class="hover:underline">Workshops</a></li>
+        <li><a href="#" class="hover:underline">Road Safety Tips</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="font-semibold">Contact</h5>
+      <p class="mt-2 text-sm">info@trafficruleshub.com<br>+92 300 1234567</p>
+    </div>
+  </div>
+  <div class="border-t border-gray-800 text-center py-4 text-sm">© 2025 Traffic Rules Hub. All rights reserved.</div>
+</footer>
+
 </body>
-</html>
-
-
-</body>
-</html>
+</head>
