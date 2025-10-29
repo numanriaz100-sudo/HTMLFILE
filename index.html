@@ -1,26 +1,18 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./src/pages/contact/contact.html">
-  <link rel="stylesheet" href="./src/pages/about/about.html">
-    <link rel="stylesheet" href="./src/pircing.html">
-    <link rel="stylesheet" href="./login.html">
-
-
-  <!-- ✅ Tailwind Always Include -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-
-
   <title>Traffic Rules</title>
-
+  
   <style>
-    body {
-     background-image: url('https://images.unsplash.com/photo-1465447142348-e9952c393450?auto=format&fit=crop&w=1400&q=80');
 
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://images.unsplash.com/photo-1465447142348-e9952c393450?auto=format&fit=crop&w=1400&q=80');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -31,64 +23,68 @@
       background-color: #111827 !important;
     }
     .hero-bg {
-     background-image: url('https://images.unsplash.com/photo-1465447142348-e9952c393450?auto=format&fit=crop&w=1400&q=80');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
+      background-image: url('https://images.unsplash.com/photo-1465447142348-e9952c393450?auto=format&fit=crop&w=1400&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
   </style>
-
 </head>
-<body>
+<body class="m-0 p-0">
 
-<header class="text-white body-font bg-black/40 backdrop-blur-sm">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    
-  <!-- Logo -->
-<a href="./index.html" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
-  <div class="w-10 h-16 bg-black rounded-lg flex flex-col items-center justify-between p-1 shadow-lg">
-    <span class="w-4 h-4 bg-red-600 rounded-full block"></span>
-    <span class="w-4 h-4 bg-yellow-400 rounded-full block"></span>
-    <span class="w-4 h-4 bg-green-600 rounded-full block"></span>
-  </div>
-  <span class="ml-3 text-xl font-bold tracking-wide">Traffic-Rules</span>
-</a>
+  <!-- Fixed Header -->
+  <header class="fixed top-0 left-0 w-full z-50 text-white body-font bg-black/40 backdrop-blur-sm">
+    <div class="container mx-auto flex flex-wrap px-5 py-0 flex-col md:flex-row items-center">
+      
+      <!-- Logo -->
+      <a href="./index.html" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+        <div class="w-10 h-16 bg-black rounded-lg flex flex-col items-center justify-between p-1 shadow-lg">
+          <span class="w-4 h-4 bg-red-600 rounded-full block"></span>
+          <span class="w-4 h-4 bg-yellow-400 rounded-full block"></span>
+          <span class="w-4 h-4 bg-green-600 rounded-full block"></span>
+        </div>
+        <span class="ml-3 text-xl font-bold tracking-wide">Traffic-Rules</span>
+      </a>
 
-    
-    <!-- Navigation Links -->
-    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-      <a href="./index.html" class="mr-5 hover:text-yellow-300">Home</a>
-      <a href="./src/pages/about/about.html" class="mr-5 hover:text-yellow-300">About</a>
-      <a href="./src/pircing.html" class="mr-5 hover:text-yellow-300">Pricing</a>
-      <a href="./src/pages/contact/contact.html" class="mr-5 hover:text-yellow-300">Contact</a>
-      <a href="./login.html" class="mr-5 hover:text-yellow-300">Login</a>
-    </nav>
-    
-   
+      <!-- Navigation Links -->
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <a href="./index.html" class="mr-5 hover:text-yellow-300">Home</a>
+        <a href="./src/pages/about/about.html" class="mr-5 hover:text-yellow-300">About</a>
+        <a href="./src/pircing.html" class="mr-5 hover:text-yellow-300">Pricing</a>
+        <a href="./src/pages/contact/contact.html" class="mr-5 hover:text-yellow-300">Contact</a>
+        <a href="./login.html" class="mr-5 hover:text-yellow-300">Login</a>
+      </nav>
+    </div>
+  </header>
 
-  </div>
-</header>
+  <!-- Add spacing for fixed header -->
+  <div class="mt-24"></div>
 
-<!-- ✅ Shorter Hero Section -->
-<section class="text-white text-center py-32" style="backdrop-filter: brightness(75%);">
-  <h1 class="text-4xl font-bold mb-4 drop-shadow-lg">Learn Traffic Safety Rules</h1>
-  <p class="text-lg max-w-2xl mx-auto drop-shadow-md">
-    Follow traffic laws to protect your life and others on the road.
-  </p>
+  <!-- Hero Section -->
+  <section class="text-white text-center py-32">
+    <h1 class="text-4xl font-bold mb-4 drop-shadow-lg">Learn Traffic Safety Rules</h1>
+    <p class="text-lg max-w-2xl mx-auto drop-shadow-md">
+      Follow traffic laws to protect your life and others on the road.
+    </p>
 
-  <div class="mt-6 space-x-4">
-    <a href="https://mtwds.punjabpolice.gov.pk/traffic-signs"
-      class="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500">
-      Learn More
-    </a>
+    <div class="mt-6 space-x-4">
+      <a href="https://mtwds.punjabpolice.gov.pk/traffic-signs"
+        class="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500">
+        Learn More
+      </a>
 
-    <a href="./src/pages/contact/contact.html"
+      <a href="./src/pages/contact/contact.html"
+        class="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700">
+        Contact
+      </a>
+    </div>
+  </section>
+      <a href="./src/pages/contact/contact.html"
       class="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700">
       Contact
     </a>
   </div>
 </section>
-
 
 <section class="text-white body-font">
   <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
@@ -208,9 +204,7 @@
   </div>
 </div>
 
-
 </div>
-
 
 </section>
 
@@ -225,7 +219,6 @@
 
   </div>
 </section>
-
 
     <div class="grid md:grid-cols-3 gap-8">
 
@@ -267,7 +260,8 @@
 </section>
 
 
-<footer class="text-white body-font bg-gray-900">
+  <!-- Your remaining sections (Steps, Hero Background, Features, Footer) -->
+   <footer class="text-white body-font bg-gray-900">
   <div class="container px-5 py-24 mx-auto flex md:items-start lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
     <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
       <a href="./index.html" class="flex title-font font-medium items-center md:justify-start justify-center text-white">
@@ -356,7 +350,6 @@
       <path stroke="none" d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.608 1.794-1.574 2.163-2.723-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-2.723 0-4.928 2.206-4.928 4.927 0 .39.045.765.127 1.124C7.728 8.087 4.1 6.128 1.671 3.149c-.427.733-.666 1.584-.666 2.475 0 1.708.87 3.213 2.188 4.096-.807-.026-1.566-.247-2.229-.616v.062c0 2.386 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.317 0-.626-.03-.928-.086.627 1.956 2.445 3.376 4.6 3.417-1.68 1.318-3.808 2.105-6.115 2.105-.398 0-.79-.023-1.175-.068 2.179 1.397 4.768 2.213 7.557 2.213 9.054 0 14-7.496 14-13.986 0-.21 0-.423-.015-.634.962-.695 1.8-1.562 2.46-2.549z"/>
     </svg>
   </a>
-
 </span>
 
     </div>
@@ -365,3 +358,9 @@
 
 </body>
 </html>
+
+
+
+
+  
+
