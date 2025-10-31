@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="./../../../src/pages/about/about.html">
   <title>Contact Us | Traffic Rules</title>
   <script src="https://cdn.tailwindcss.com"></script>
+<script type="module" src="./../home/home.js"></script>
+<a href="./contactthanks.html"></a>
 </head>
 
 
@@ -22,6 +24,7 @@
        <a href="./../../pircing.html" class="mr-5 hover:text-yellow-300">Pricing</a>
       <a href="./../about/about.html" class="mr-5 hover:text-yellow-300">About</a>
       <a href="./../contact/contact.html" class="mr-5 hover:text-yellow-300">Contact</a>
+      <a href="./../../../login.html" class="mr-5 hover:text-yellow-300">Login</a>
     </nav>
   </div>
 </header>
@@ -50,21 +53,61 @@
     </div>
   </section>
 
-  <!-- ✅ 6. Contact Form -->
-  <section class="container mx-auto bg-white shadow-xl rounded-2xl p-8 mb-12">
-    <h3 class="text-2xl font-bold mb-6 text-center text-indigo-600">Send Us a Message</h3>
-    
-    <form class="grid md:grid-cols-2 gap-6">
-      <input class="border p-3 rounded-lg w-full" placeholder="Full Name" required>
-      <input class="border p-3 rounded-lg w-full" placeholder="Email" required>
-      <input class="border p-3 rounded-lg w-full" placeholder="Phone">
-      <input class="border p-3 rounded-lg w-full" placeholder="Subject" required>
-      <textarea rows="5" class="border p-3 rounded-lg md:col-span-2" placeholder="Your Message"></textarea>
-      <button class="bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg md:col-span-2 transition">
-        Send Message
-      </button>
-    </form>
-  </section>
+  <!-- ✅ 6. Contact Form
+<section class="container mx-auto bg-white shadow-xl rounded-2xl p-8 mb-12">
+  <h3 class="text-2xl font-bold mb-6 text-center text-indigo-600">Send Us a Message</h3>
+
+  <form id="contactForm" class="grid md:grid-cols-2 gap-6">
+    <input name="fullName" class="border p-3 rounded-lg w-full" placeholder="Full Name" required>
+    <input name="email" type="email" class="border p-3 rounded-lg w-full" placeholder="Email" required>
+    <input name="phone" class="border p-3 rounded-lg w-full" placeholder="Phone">
+    <input name="subject" class="border p-3 rounded-lg w-full" placeholder="Subject" required>
+    <textarea name="message" rows="5" class="border p-3 rounded-lg md:col-span-2" placeholder="Your Message"></textarea>
+
+    <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg md:col-span-2 transition">
+      Send Message
+    </button>
+  </form>
+</section>-->
+<section class="container mx-auto bg-white shadow-xl rounded-2xl p-8 mb-12">
+  <h3 class="text-2xl font-bold mb-6 text-center text-indigo-600">Send Us a Message</h3>
+
+  <form 
+    action="https://formsubmit.co/numanriaz100@gmail.com" 
+    method="POST" 
+    class="grid md:grid-cols-2 gap-6"
+    onsubmit="showSuccessMessage()"
+  >
+    <!-- FormSubmit Settings -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="thankyou.html"> <!-- Redirect After Submit -->
+
+    <input name="fullName" class="border p-3 rounded-lg w-full" placeholder="Full Name" required>
+    <input name="email" type="email" class="border p-3 rounded-lg w-full" placeholder="Email" required>
+    <input name="phone" class="border p-3 rounded-lg w-full" placeholder="Phone">
+    <input name="subject" class="border p-3 rounded-lg w-full" placeholder="Subject" required>
+
+    <textarea name="message" rows="5" class="border p-3 rounded-lg md:col-span-2" placeholder="Your Message"></textarea>
+
+    <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg md:col-span-2 transition">
+      Send Message
+    </button>
+  </form>
+
+  <!-- ✅ Success Message (Hidden by default) -->
+  <p id="successMsg" class="hidden mt-4 text-center text-green-600 font-semibold">
+    ✅ Thank you! Your message has been sent successfully.
+  </p>
+</section>
+
+<script>
+  function showSuccessMessage() {
+    document.getElementById('successMsg').classList.remove('hidden');
+  }
+</script>
+
+
 
   <!-- ✅ 7. Map -->
   <section class="container mx-auto px-6 mb-12">
@@ -86,6 +129,10 @@
       <p class="mt-2 text-sm">Call your city’s traffic helpline or report online.</p>
     </details>
   </section>
+
+
+
+
 
   
   <section class="w-full py-20 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white text-center shadow-lg">
