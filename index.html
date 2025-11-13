@@ -6,8 +6,13 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="module" src="./src/pages/home/home.js"></script>
+  <script type="module" src="./utils/themeutils.js"></script>
+  <script type="module" src="./src/pages/home/rules.js"></script>
+
+
+
+
   <title>Traffic Rules</title>
-  
   <style>
 
     body {
@@ -31,10 +36,31 @@
     }
   </style>
 </head>
+
+<!-- ✅ Edit Modal -->
+<div id="editModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center">
+  <div class="bg-white p-6 rounded-lg w-80 text-black">
+    <h3 class="text-lg font-bold mb-3">Edit Rule</h3>
+
+    <input id="editTitle" class="p-2 border rounded w-full mb-2">
+    <input id="editDesc" class="p-2 border rounded w-full mb-4">
+
+    <div class="flex justify-end gap-2">
+      <button id="cancelEdit"
+        class="bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600">Cancel</button>
+      <button id="saveEdit"
+        class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Save</button>
+    </div>
+  </div>
+</div>
+
+
+
 <body class="m-0 p-0">
 
   <!-- Fixed Header -->
-  <header class="fixed top-0 left-0 w-full z-50 text-white body-font bg-black/40 backdrop-blur-sm">
+  <header class="fixed top-0 left-0 w-full z-50 text-white body-font bg-black/40 dark:bg-black">
+
     
     <div class="container mx-auto flex flex-wrap px-5 py-0 flex-col md:flex-row items-center">
       
@@ -48,14 +74,25 @@
         <span class="ml-3 text-xl font-bold tracking-wide">Traffic-Rules</span>
       </a>
 
-      <!-- Navigation Links -->
-      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-        <a href="./index.html" class="mr-5 hover:text-yellow-300">Home</a>
-        <a href="./src/pages/about/about.html" class="mr-5 hover:text-yellow-300">About</a>
-        <a href="./src/pircing.html" class="mr-5 hover:text-yellow-300">Pricing</a>
-        <a href="./src/pages/contact/contact.html" class="mr-5 hover:text-yellow-300">Contact</a>
-        <a href="./login.html" class="mr-5 hover:text-yellow-300">Login</a>
-      </nav>
+   <!-- Navigation Links -->
+    <!-- Navigation -->
+<nav class="md:ml-auto flex flex-col md:flex-row items-center text-base justify-center space-y-2 md:space-y-0 md:space-x-5">
+
+  <a href="./index.html" class="mr-5 hover:text-yellow-300">Home</a>
+  <a href="./src/pages/about/about.html" class="mr-5 hover:text-yellow-300">About</a>
+  <a href="./src/pircing.html" class="mr-5 hover:text-yellow-300">Pricing</a>
+  <a href="./src/pages/contact/contact.html" class="mr-5 hover:text-yellow-300">Contact</a>
+  <a href="./login.html" class="mr-5 hover:text-yellow-300">Login</a>
+
+  <!-- ✅ Dark/Light Toggle Button -->
+  <button id="themeToggleBtn" 
+  class="ml-4 px-3 py-1 rounded-lg bg-yellow-400 text-black font-semibold hover:bg-yellow-500 transition">
+  🌙 Toggle
+</button>
+
+
+</nav>
+
     </div>
   </header>
 
@@ -66,6 +103,7 @@
   <section class="text-white text-center py-32">
     <h1 class="text-4xl font-bold mb-4 drop-shadow-lg">Learn Traffic Safety Rules</h1>
     <p class="text-lg max-w-2xl mx-auto drop-shadow-md">
+      </div>
       Follow traffic laws to protect your life and others on the road.
     </p>
 
@@ -80,10 +118,58 @@
         Contact
       </a>
     </div>
-   
+     
+      
+ 
+<!--
+<form id="challanForm">
+  <input type="number" id="challanNo" placeholder="Challan No." required>
+  <input type="text" id="reason" placeholder="Reason" required>
+  <input type="number" id="fine" placeholder="Fine Amount" required>
+  <button type="submit">Add Challan</button>
+</form>
+<div id="challan_list">
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traffic Regulation</title>
 
-  </section>
+   Simple grid layout for cards 
+  <style>
+    #challan_list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: #333;
+    }
+
+    .card p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Traffic Regulation Challans</h1>
+  <div id="challan_list"></div>
+  <script type="module" src="script.js"></scrip>
+</body></html>-->
+
     
 
 <section class="text-white body-font">
@@ -208,6 +294,68 @@
 
 </section>
 
+
+  
+<!-- ✅ CRUD SECTION: Manage Traffic Safety Rules -->
+
+<section class="py-20 bg-black/60 text-white">
+  <div class="container mx-auto px-5">
+    <h2 class="text-3xl font-bold text-center text-yellow-400 mb-8">Manage Safety Rules</h2>
+
+<!-- ✅ Search Filters Section -->
+
+<div class="bg-gray-800 p-4 mb-8 rounded-lg">
+  <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+    <input id="searchText" placeholder="Search by text..." class="p-3 rounded bg-gray-700 text-white">
+   <input 
+  type="text" 
+  id="startLetter" 
+  placeholder="first letter" 
+  maxlength="1"
+  class="p-3 rounded bg-gray-700 text-white"
+/>
+
+<input 
+  type="number" 
+  id="wordFilter" 
+  placeholder="Enter number of letters" 
+  class="p-3 rounded bg-gray-700 text-white"
+/>
+
+
+    <input id="keywordFilter" placeholder="Keyword e.g Helmet" class="p-3 rounded bg-gray-700 text-white">
+
+    <button id="resetFilters" class="bg-red-500 hover:bg-red-600 text-white rounded p-3">
+      Reset Filters
+    </button>
+
+  </div>
+</div>
+
+
+    <!-- Form -->
+    <form id="ruleForm" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+      <input id="ruleTitle" required placeholder="Rule Title" class="p-3 rounded bg-gray-800 text-white">
+      <input id="ruleDesc" required placeholder="Rule Description" class="p-3 rounded bg-gray-800 text-white">
+      <button class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded p-3">Add Rule</button>
+    </form>
+
+    <!-- Cards List -->
+    <div id="rulesContainer"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
 <section class="hero-bg py-16 cursor-default select-none">
   <div class="max-w-7xl mx-auto px-6 text-center">
 
@@ -261,106 +409,110 @@
 
 
   <!-- Your remaining sections (Steps, Hero Background, Features, Footer) -->
-   <footer class="text-white body-font bg-gray-900">
-  <div class="container px-5 py-24 mx-auto flex md:items-start lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-    <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-      <a href="./index.html" class="flex title-font font-medium items-center md:justify-start justify-center text-white">
-        <svg xmlns="http://www.w3.org/2000/svg" 
-          fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-          class="w-10 h-10 p-2 bg-red-600 rounded-full" viewBox="0 0 24 24">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-        </svg>
-        <span class="ml-3 text-xl">Traffic Rules</span>
+   
+  <footer class="bg-gray-900 text-gray-300 pt-10">
+  <div class="container mx-auto px-5">
+
+    <!-- Logo + Tagline -->
+    <div class="text-center mb-6">
+      <a href="index.html" class="flex justify-center items-center text-white mb-3">
+        <div class="w-10 h-14 bg-black rounded-lg p-1 flex flex-col justify-between">
+          <span class="w-3 h-3 bg-red-600 rounded-full block"></span>
+          <span class="w-3 h-3 bg-yellow-400 rounded-full block"></span>
+          <span class="w-3 h-3 bg-green-600 rounded-full block"></span>
+        </div>
+        <span class="ml-3 text-xl font-semibold">Traffic Rules</span>
       </a>
-      <p class="mt-2 text-sm text-gray-400">Learn and follow road safety rules for a safer journey.</p>
+      <p class="text-sm text-gray-400">Learn and follow road safety rules for a safer journey.</p>
     </div>
 
-    <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+    <!-- Footer Columns -->
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left border-t border-gray-700 pt-8">
 
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">Quick Links</h2>
-        <nav class="list-none mb-10">
-          <li><a href="./index.html" class="text-gray-400 hover:text-white">Home</a></li>
-          <li><a href="./src/pages/about/about.html" class="text-gray-400 hover:text-white">About</a></li>
-          <li><a href="./src/pages/contact/contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
-          <li><a href="./login.html" class="text-gray-400 hover:text-white">Login</a></li>
-        </nav>
+      <!-- Quick Links -->
+      <div>
+        <h2 class="text-white font-semibold mb-3">Quick Links</h2>
+        <ul class="space-y-2">
+          <li><a href="./index.html" class="hover:text-white">Home</a></li>
+          <li><a href="./src/pages/about/about.html" class="hover:text-white">About</a></li>
+          <li><a href="./src/pages/contact/contact.html" class="hover:text-white">Contact</a></li>
+          <li><a href="./login.html" class="hover:text-white">Login</a></li>
+        </ul>
       </div>
 
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">Safety Info</h2>
-        <nav class="list-none mb-10">
-          <li><a class="text-gray-400 hover:text-white">Traffic Signs</a></li>
-          <li><a class="text-gray-400 hover:text-white">Driving Rules</a></li>
-          <li><a class="text-gray-400 hover:text-white">Violations & Fines</a></li>
-          <li><a class="text-gray-400 hover:text-white">Emergency Help</a></li>
-        </nav>
+      <!-- Safety -->
+      <div>
+        <h2 class="text-white font-semibold mb-3">Safety Info</h2>
+        <ul class="space-y-2">
+          <li>Traffic Signs</li>
+          <li>Driving Rules</li>
+          <li>Violations & Fines</li>
+          <li>Emergency Help</li>
+        </ul>
       </div>
 
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">Learn With Us</h2>
-        <nav class="list-none mb-10">
-          <li><a class="text-gray-400 hover:text-white">Road Safety Tips</a></li>
-          <li><a class="text-gray-400 hover:text-white">Speed Limits</a></li>
-          <li><a class="text-gray-400 hover:text-white">Helmet & Seatbelts</a></li>
-          <li><a class="text-gray-400 hover:text-white">School Zone Rules</a></li>
-        </nav>
+      <!-- Learning -->
+      <div>
+        <h2 class="text-white font-semibold mb-3">Learn With Us</h2>
+        <ul class="space-y-2">
+          <li>Safety Tips</li>
+          <li>Speed Limits</li>
+          <li>Helmet & Seatbelts</li>
+          <li>School Zone Rules</li>
+        </ul>
       </div>
 
-      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-        <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">Contact Info</h2>
-        <nav class="list-none mb-10">
-          <li><a class="text-gray-400 hover:text-white">📞 +92 300 1234567</a></li>
-          <li><a class="text-gray-400 hover:text-white">📧 info@trafficrules.pk</a></li>
-          <li><a class="text-gray-400 hover:text-white">📍 Pakistan</a></li>
-        </nav>
+      <!-- Contact Info -->
+      <div>
+        <h2 class="text-white font-semibold mb-3">Contact Info</h2>
+        <ul class="space-y-2">
+          <li>📞 +92 300 1234567</li>
+          <li>📧 info@trafficrules.pk</li>
+          <li>📍 Pakistan</li>
+        </ul>
       </div>
 
     </div>
-  </div>
 
-  <div class="bg-gray-800">
-    <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-      <p class="text-gray-400 text-sm text-center sm:text-left">© 2025 Traffic Rules Website — All Rights Reserved</p>
+    <!-- Bottom Line Bar -->
+    <div class="border-t border-gray-700 mt-10 py-4 flex flex-wrap items-center justify-between text-sm">
 
-      <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-  
-  <!-- Facebook -->
-  <a href="https://www.facebook.com" target="_blank" class="text-gray-400 hover:text-white">
-    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0"
-         class="w-5 h-5" viewBox="0 0 24 24">
-      <path stroke="none" d="M22.675 0h-21.35C.598 0 0 .598 0 1.325v21.351C0 23.402.598 24 1.325 24h11.49v-9.294H9.691v-3.622h3.124V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.463.099 2.794.143v3.24h-1.918c-1.504 0-1.796.716-1.796 1.765v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.402 24 24 23.402 24 22.676V1.325C24 .598 23.402 0 22.675 0z"/>
-    </svg>
-  </a>
+      <p class="text-gray-400">© 2025 Traffic Rules Website — All Rights Reserved</p>
 
-  <!-- Instagram -->
-  <a href="https://www.instagram.com" target="_blank" class="ml-3 text-gray-400 hover:text-white">
-    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0"
-         class="w-5 h-5" viewBox="0 0 24 24">
-      <path stroke="none" d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.056 1.987.24 2.443.402a4.92 4.92 0 011.81 1.172 4.92 4.92 0 011.172 1.81c.162.456.346 1.273.402 2.443.058 1.266.07 1.645.07 4.849s-.012 3.584-.07 4.85c-.056 1.17-.24 1.987-.402 2.443a4.918 4.918 0 01-1.172 1.81 4.918 4.918 0 01-1.81 1.172c-.456.162-1.273.346-2.443.402-1.266.058-1.645.07-4.85.07s-3.584-.012-4.849-.07c-1.17-.056-1.987-.24-2.443-.402a4.92 4.92 0 01-1.81-1.172 4.92 4.92 0 01-1.172-1.81c-.162-.456-.346-1.273-.402-2.443C2.175 15.747 2.163 15.368 2.163 12s.012-3.584.07-4.849c.056-1.17.24-1.987.402-2.443a4.918 4.918 0 011.172-1.81 4.918 4.918 0 011.81-1.172c.456-.162 1.273-.346 2.443-.402C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.735 0 8.332.013 7.052.072 5.777.131 4.697.346 3.805.635 2.87.931 2.1 1.37 1.34 2.13.58 2.89.141 3.66-.155 4.595c-.289.892-.504 1.972-.563 3.247C-.013 8.332 0 8.735 0 12c0 3.265.013 3.668.072 4.948.059 1.275.274 2.355.563 3.247.296.935.735 1.705 1.495 2.465.76.76 1.53 1.199 2.465 1.495.892.289 1.972.504 3.247.563C8.332 23.987 8.735 24 12 24s3.668-.013 4.948-.072c1.275-.059 2.355-.274 3.247-.563.935-.296 1.705-.735 2.465-1.495.76-.76 1.199-1.53 1.495-2.465.289-.892.504-1.972.563-3.247.059-1.28.072-1.683.072-4.948s-.013-3.668-.072-4.948c-.059-1.275-.274-2.355-.563-3.247-.296-.935-.735-1.705-1.495-2.465-.76-.76-1.53-1.199-2.465-1.495-.892-.289-1.972-.504-3.247-.563C15.668.013 15.265 0 12 0z"/>
-      <circle cx="12" cy="12" r="3.5"/>
-      <circle cx="18.406" cy="5.594" r="1.44"/>
-    </svg>
-  </a>
-
-  <!-- Twitter -->
-  <a href="https://www.twitter.com" target="_blank" class="ml-3 text-gray-400 hover:text-white">
-    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0"
-         class="w-5 h-5" viewBox="0 0 24 24">
-      <path stroke="none" d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.608 1.794-1.574 2.163-2.723-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-2.723 0-4.928 2.206-4.928 4.927 0 .39.045.765.127 1.124C7.728 8.087 4.1 6.128 1.671 3.149c-.427.733-.666 1.584-.666 2.475 0 1.708.87 3.213 2.188 4.096-.807-.026-1.566-.247-2.229-.616v.062c0 2.386 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.317 0-.626-.03-.928-.086.627 1.956 2.445 3.376 4.6 3.417-1.68 1.318-3.808 2.105-6.115 2.105-.398 0-.79-.023-1.175-.068 2.179 1.397 4.768 2.213 7.557 2.213 9.054 0 14-7.496 14-13.986 0-.21 0-.423-.015-.634.962-.695 1.8-1.562 2.46-2.549z"/>
-    </svg>
-  </a>
-</span>
+      <!-- Social Icons -->
+      <span class="flex space-x-4 mt-2 md:mt-0">
+        <a href="#" class="hover:text-white">📘</a>
+        <a href="#" class="hover:text-white">📸</a>
+        <a href="#" class="hover:text-white">🐦</a>
+      </span>
 
     </div>
   </div>
 </footer>
 
+<script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    html.classList.toggle("dark");
+
+    // save preference
+    if (html.classList.contains("dark")) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  }
+
+  // Load saved theme on page load
+  window.onload = () => {
+    if (localStorage.getItem("theme") === "light") {
+      document.documentElement.classList.remove("dark");
+    }
+  };
+</script>
+
 </body>
 </html>
 
 
-
-
-  
 

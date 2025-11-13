@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — TechNova</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="../../../utils/themeutils.js"></script>
 
 
   <link  href="./src/pages/contact/contact.html">
@@ -15,20 +16,40 @@
   </style>
 </head>
 
-<header class="text-white body-font bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-lg">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <a href="index.html" class="flex title-font font-medium items-center mb-4 md:mb-0 text-white">
-      <span class="ml-3 text-xl font-bold">Traffic Rules</span>
-    </a>
-    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-      <a href="./../../../index.html" class="mr-5 hover:text-yellow-300">Home</a>
-       <a href="./../../pircing.html" class="mr-5 hover:text-yellow-300">Pricing</a>
-      <a href="./../about/about.html" class="mr-5 hover:text-yellow-300">About</a>
-      <a href="./../contact/contact.html" class="mr-5 hover:text-yellow-300">Contact</a>
-      <a href="./../../../login.html" class="mr-5 hover:text-yellow-300">Login</a>
-    </nav>
-  </div>
-</header>
+<!-- Fixed Header -->
+ <header class="fixed top-0 left-0 w-full z-50 text-white body-font bg-black/40 dark:bg-black">
+
+    
+    <div class="container mx-auto flex flex-wrap px-5 py-0 flex-col md:flex-row items-center">
+      
+      <!-- Logo -->
+      <a href="./index.html" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+        <div class="w-10 h-16 bg-black rounded-lg flex flex-col items-center justify-between p-1 shadow-lg">
+          <span class="w-4 h-4 bg-red-600 rounded-full block"></span>
+          <span class="w-4 h-4 bg-yellow-400 rounded-full block"></span>
+          <span class="w-4 h-4 bg-green-600 rounded-full block"></span>
+        </div>
+        <span class="ml-3 text-xl font-bold tracking-wide">Traffic-Rules</span>
+      </a>
+
+   <!-- Navigation Links -->
+<nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+  <a href="./../../../index.html" class="mr-5 hover:text-yellow-300">Home</a>
+  <a href="../about/about.html" class="mr-5 hover:text-yellow-300">About</a>
+  <a href="../../pircing.html" class="mr-5 hover:text-yellow-300">Pricing</a>
+  <a href="../contact/contact.html" class="mr-5 hover:text-yellow-300">Contact</a>
+  <a href="../../../login.html" class="mr-5 hover:text-yellow-300">Login</a>
+
+  <!-- ✅ Dark/Light Toggle Button -->
+  <button id="themeToggleBtn" 
+  class="ml-4 px-3 py-1 rounded-lg bg-yellow-400 text-black font-semibold hover:bg-yellow-500 transition">
+  🌙 Toggle
+</button>
+
+</nav>
+
+    </div>
+  </header>
 
 
 
@@ -197,28 +218,86 @@
   </div>
 </section>
 
-<!-- 10) FOOTER -->
-<footer class="bg-gray-900 text-gray-200">
-  <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
-    <div>
-      <h4 class="font-semibold text-white">Traffic Rules Hub</h4>
-      <p class="text-sm mt-2">Promoting road safety, traffic awareness, and responsible driving.</p>
+<footer class="bg-gray-900 text-gray-300 pt-10">
+  <div class="container mx-auto px-5">
+
+    <!-- Logo + Tagline -->
+    <div class="text-center mb-6">
+      <a href="index.html" class="flex justify-center items-center text-white mb-3">
+        <div class="w-10 h-14 bg-black rounded-lg p-1 flex flex-col justify-between">
+          <span class="w-3 h-3 bg-red-600 rounded-full block"></span>
+          <span class="w-3 h-3 bg-yellow-400 rounded-full block"></span>
+          <span class="w-3 h-3 bg-green-600 rounded-full block"></span>
+        </div>
+        <span class="ml-3 text-xl font-semibold">Traffic Rules</span>
+      </a>
+      <p class="text-sm text-gray-400">Learn and follow road safety rules for a safer journey.</p>
     </div>
-    <div>
-      <h5 class="font-semibold">Quick Links</h5>
-      <ul class="mt-3 space-y-2 text-sm">
-        <li><a href="#" class="hover:underline">Rules & Regulations</a></li>
-        <li><a href="#" class="hover:underline">Workshops</a></li>
-        <li><a href="#" class="hover:underline">Road Safety Tips</a></li>
-      </ul>
+
+    <!-- Footer Columns -->
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left border-t border-gray-700 pt-8">
+
+      <!-- Quick Links -->
+      <div>
+        <h2 class="text-white font-semibold mb-3">Quick Links</h2>
+        <ul class="space-y-2">
+          <li><a href="./../../../index.html" class="hover:text-white">Home</a></li>
+          <li><a href="../about/about.html" class="hover:text-white">About</a></li>
+          <li><a href="../contact/contact.html" class="hover:text-white">Contact</a></li>
+          <li><a href="./../../../login.html" class="hover:text-white">Login</a></li>
+        </ul>
+      </div>
+
+      <!-- Safety -->
+      <div>
+        <h2 class="text-white font-semibold mb-3">Safety Info</h2>
+        <ul class="space-y-2">
+          <li>Traffic Signs</li>
+          <li>Driving Rules</li>
+          <li>Violations & Fines</li>
+          <li>Emergency Help</li>
+        </ul>
+      </div>
+
+      <!-- Learning -->
+      <div>
+        <h2 class="text-white font-semibold mb-3">Learn With Us</h2>
+        <ul class="space-y-2">
+          <li>Safety Tips</li>
+          <li>Speed Limits</li>
+          <li>Helmet & Seatbelts</li>
+          <li>School Zone Rules</li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h2 class="text-white font-semibold mb-3">Contact Info</h2>
+        <ul class="space-y-2">
+          <li>📞 +92 300 1234567</li>
+          <li>📧 info@trafficrules.pk</li>
+          <li>📍 Pakistan</li>
+        </ul>
+      </div>
+
     </div>
-    <div>
-      <h5 class="font-semibold">Contact</h5>
-      <p class="mt-2 text-sm">info@trafficruleshub.com<br>+92 300 1234567</p>
+
+    <!-- Bottom Line Bar -->
+    <div class="border-t border-gray-700 mt-10 py-4 flex flex-wrap items-center justify-between text-sm">
+
+      <p class="text-gray-400">© 2025 Traffic Rules Website — All Rights Reserved</p>
+
+      <!-- Social Icons -->
+      <span class="flex space-x-4 mt-2 md:mt-0">
+        <a href="#" class="hover:text-white">📘</a>
+        <a href="#" class="hover:text-white">📸</a>
+        <a href="#" class="hover:text-white">🐦</a>
+      </span>
+
     </div>
   </div>
-  <div class="border-t border-gray-800 text-center py-4 text-sm">© 2025 Traffic Rules Hub. All rights reserved.</div>
 </footer>
+
 
 </body>
 </head>
