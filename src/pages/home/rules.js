@@ -11,16 +11,35 @@ let editIndex = null;
 // Save to LocalStorage
 const saveToLS = () => localStorage.setItem("rules", JSON.stringify(rules));
 
+// Update results count
+const updateResultsCount = (count) => {
+  const countElement = document.getElementById("resultsCount");
+  if (countElement) {
+    countElement.textContent = `Showing ${count} of ${rules.length} rules`;
+  }
+};
+
 // Display rules
 const displayRules = (rulesToDisplay = rules) => {
   const container = document.getElementById("rulesContainer");
+
+  if (rulesToDisplay.length === 0) {
+    container.innerHTML = `
+      <div class="col-span-full text-center py-12">
+        <div class="text-gray-400 text-lg mb-2">No rules found</div>
+        <div class="text-gray-500 text-sm">Try adjusting your filters or add a new rule</div>
+      </div>
+    `;
+    return;
+  }
+
   container.innerHTML = rulesToDisplay.map((rule, i) => `
-    <div class="bg-gray-900 p-5 rounded-lg shadow-xl border border-yellow-600">
-      <h3 class="text-xl font-bold text-yellow-300">${rule.title}</h3>
-      <p class="text-gray-300 mt-1">${rule.desc}</p>
+    <div class="bg-gray-900 p-5 rounded-lg shadow-xl border border-yellow-600 hover:border-yellow-500 transition-colors">
+      <h3 class="text-xl font-bold text-yellow-300 mb-2">${rule.title}</h3>
+      <p class="text-gray-300 mt-1 leading-relaxed">${rule.desc}</p>
       <div class="flex justify-center gap-3 mt-4">
-        <button onclick="openEdit(${i})" class="bg-blue-500 hover:bg-blue-600 px-4 py-1 rounded">Edit</button>
-        <button onclick="deleteRule(${i})" class="bg-red-600 hover:bg-red-700 px-4 py-1 rounded">Delete</button>
+        <button onclick="openEdit(${i})" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded transition-colors">Edit</button>
+        <button onclick="deleteRule(${i})" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded transition-colors">Delete</button>
       </div>
     </div>
   `).join("");
@@ -28,6 +47,7 @@ const displayRules = (rulesToDisplay = rules) => {
 
 // Initial display
 displayRules();
+updateResultsCount(rules.length);
 
 // Add Rule
 document.getElementById("ruleForm").addEventListener("submit", (e) => {
@@ -76,40 +96,59 @@ document.getElementById("cancelEdit").addEventListener("click", () => {
 
 // ---------------- Filters ----------------
 const applyFilters = () => {
-  const searchText = document.getElementById("searchText").value.toLowerCase();
-  const startLetter = document.getElementById("startLetter").value.toLowerCase();
-  const wordFilter = document.getElementById("wordFilter").value.toLowerCase(); // user can type number of words
-  const keywordFilter = document.getElementById("keywordFilter").value.toLowerCase();
+  const searchText = document.getElementById("searchText").value.toLowerCase().trim();
+  const startLetter = document.getElementById("startLetter").value.toLowerCase().trim();
+  const wordFilter = document.getElementById("wordFilter").value.trim();
+  const keywordFilter = document.getElementById("keywordFilter").value.toLowerCase().trim();
 
   const filtered = rules.filter(rule => {
     const title = rule.title.toLowerCase();
     const desc = rule.desc.toLowerCase();
-    const wordCount = desc.split(" ").length;
 
-    // Search text filter
-    const matchesSearch = !searchText || title.includes(searchText) || desc.includes(searchText);
+    // Enhanced search text filter - supports multiple words and partial matches
+    const matchesSearch = !searchText ||
+      searchText.split(' ').every(word =>
+        title.includes(word) || desc.includes(word)
+      );
 
-    // Start letter filter
-    const matchesStart = !startLetter || title.startsWith(startLetter);
+    // Start letter filter - checks if title starts with any of the entered letters
+    const matchesStart = !startLetter ||
+      startLetter.split('').some(letter =>
+        title.startsWith(letter)
+      );
 
-     // ✅ Word length (based on number entered)
-  let matchesWord = true;
-  if (wordFilter) {
-    const maxLetters = parseInt(wordFilter);
-    if (!isNaN(maxLetters)) {
-      const titleLength = title.length;
-      const descLength = desc.length;
-      matchesWord = titleLength <= maxLetters || descLength <= maxLetters;
+    // Word/letter count filter - more flexible
+    let matchesWord = true;
+    if (wordFilter) {
+      const count = parseInt(wordFilter);
+      if (!isNaN(count)) {
+        // Check if it's filtering by word count or letter count
+        const isWordCount = wordFilter.includes('w') || wordFilter.includes('W');
+        if (isWordCount) {
+          const wordCount = desc.split(/\s+/).length;
+          matchesWord = wordCount <= count;
+        } else {
+          // Letter count filter
+          const titleLength = title.replace(/\s/g, '').length;
+          const descLength = desc.replace(/\s/g, '').length;
+          matchesWord = titleLength <= count || descLength <= count;
+        }
+      }
     }
-  }
 
-    // Keyword filter
-    const matchesKeyword = !keywordFilter || title.includes(keywordFilter) || desc.includes(keywordFilter);
+    // Enhanced keyword filter - supports multiple keywords separated by commas or spaces
+    const matchesKeyword = !keywordFilter ||
+      keywordFilter.split(/[,\s]+/).some(keyword =>
+        keyword.trim() && (title.includes(keyword.trim()) || desc.includes(keyword.trim()))
+      );
 
     return matchesSearch && matchesStart && matchesWord && matchesKeyword;
   });
 
   displayRules(filtered);
+
+  // Update results count
+  updateResultsCount(filtered.length);
 };
 
 // Event listeners
@@ -123,4 +162,5 @@ document.getElementById("resetFilters").addEventListener("click", () => {
   document.getElementById("wordFilter").value = "";
   document.getElementById("keywordFilter").value = "";
   displayRules();
+  updateResultsCount(rules.length);
 });
