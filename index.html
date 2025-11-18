@@ -9,6 +9,7 @@
   <script type="module" src="./utils/themeutils.js"></script>
   <script type="module" src="./src/pages/home/rules.js"></script>
   <script type="module" src="./src/pages/home/home.css"></script>
+  <script type="module" src="./constants/themeconstant.js"></script>
 
 
 
@@ -259,37 +260,33 @@
 
 <!-- ✅ Search Filters Section -->
 
-<div class="bg-gray-800 p-4 md:p-6 mb-8 rounded-lg">
+<div class="bg-gray-800 p-4 mb-8 rounded-lg">
   <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-    <input id="searchText" placeholder="Search rules..." class="p-3 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all" title="Search in titles and descriptions">
-    <input
-      type="text"
-      id="startLetter"
-      placeholder="Starts with (e.g. W,S)"
-      maxlength="5"
-      class="p-3 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all"
-      title="Filter by starting letters"
-    />
+    <input id="searchText" placeholder="Search by text..." class="p-3 rounded bg-gray-700 text-white">
+   <input 
+  type="text" 
+  id="startLetter" 
+  placeholder="first letter" 
+  maxlength="1"
+  class="p-3 rounded bg-gray-700 text-white"
+/>
 
-    <input
-      type="text"
-      id="wordFilter"
-      placeholder="Max letters (e.g. 20) or words (20w)"
-      class="p-3 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all"
-      title="Filter by letter count or word count (add 'w' for words)"
-    />
+<input 
+  type="number" 
+  id="wordFilter" 
+  placeholder="Enter number of letters" 
+  class="p-3 rounded bg-gray-700 text-white"
+/>
 
-    <input id="keywordFilter" placeholder="Keywords (comma/space separated)" class="p-3 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition-all" title="Filter by specific keywords">
 
-    <button id="resetFilters" class="bg-red-500 hover:bg-red-600 text-white rounded p-3 transition-colors font-medium">
+    <input id="keywordFilter" placeholder="Keyword e.g Helmet" class="p-3 rounded bg-gray-700 text-white">
+
+    <button id="resetFilters" class="bg-red-500 hover:bg-red-600 text-white rounded p-3">
       Reset Filters
     </button>
 
   </div>
-
-  <!-- Results Count -->
-  <div id="resultsCount" class="text-gray-300 text-sm mt-4 text-center md:text-left">
-    Showing 4 of 4 rules
+</div>
 
 
     <!-- Form -->
@@ -305,6 +302,15 @@
     </div>
   </div>
 </section>
+
+
+
+
+
+
+
+
+
 
 <section class="hero-bg py-12 md:py-16 cursor-default select-none">
   <div class="max-w-7xl mx-auto px-6 text-center">
@@ -442,6 +448,7 @@
   </div>
 </footer>
 
+
 <script>
   // Mobile menu toggle
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -450,25 +457,6 @@
   mobileMenuBtn.addEventListener('click', () => {
     navMenu.classList.toggle('hidden');
   });
-
-  function toggleTheme() {
-    const html = document.documentElement;
-    html.classList.toggle("dark");
-
-    // save preference
-    if (html.classList.contains("dark")) {
-      localStorage.setItem("theme", "dark");
-    } else {
-      localStorage.setItem("theme", "light");
-    }
-  }
-
-  // Load saved theme on page load
-  window.onload = () => {
-    if (localStorage.getItem("theme") === "light") {
-      document.documentElement.classList.remove("dark");
-    }
-  };
 </script>
 
 </body>

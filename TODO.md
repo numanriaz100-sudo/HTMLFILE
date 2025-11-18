@@ -1,0 +1,7 @@
+- [x] Fix wrong CSS link in contact.html
+- [x] Remove duplicate script tag in contact.html
+- [x] Remove empty anchor tag in contact.html
+- [x] Make map iframe height responsive in contact.html
+- [x] Fix wrong CSS links in about.html
+- [x] Fix title in about.html
+- [x] Fix img alt quote in about.html

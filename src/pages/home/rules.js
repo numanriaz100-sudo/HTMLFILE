@@ -33,7 +33,9 @@ const displayRules = (rulesToDisplay = rules) => {
     return;
   }
 
-  container.innerHTML = rulesToDisplay.map((rule, i) => `
+  container.innerHTML = rulesToDisplay.map((rule) => {
+    const i = rules.indexOf(rule);
+    return `
     <div class="bg-gray-900 p-5 rounded-lg shadow-xl border border-yellow-600 hover:border-yellow-500 transition-colors">
       <h3 class="text-xl font-bold text-yellow-300 mb-2">${rule.title}</h3>
       <p class="text-gray-300 mt-1 leading-relaxed">${rule.desc}</p>
@@ -42,7 +44,8 @@ const displayRules = (rulesToDisplay = rules) => {
         <button onclick="deleteRule(${i})" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded transition-colors">Delete</button>
       </div>
     </div>
-  `).join("");
+  `;
+  }).join("");
 };
 
 // Initial display
